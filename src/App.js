@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter, Routes , Route } from 'react-router-dom';
+import './index.css';
+import Footer from "./components/common/Footer";
+import Header from "./components/common/Header";
+import NewsScreen from "./components/pages/home/NewsPage";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <BrowserRouter basename="/">
+        <Header/>
+        
+          <Routes> 
+             {/* <Route exact path="/" component={NewsScreen} /> */}
+             <Route  path="/" element={<NewsScreen/>}  exact />
+          </Routes>
+        <Footer/>
+        </BrowserRouter>
     </div>
   );
 }
+
+// export default App;
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <>
+//       <BrowserRouter basename="/">
+//         <Header/>
+        
+//           <Routes> 
+//              <Route exact path="/" component={NewsScreen} />
+//           </Routes>
+//         <Footer/>
+//         </BrowserRouter>
+//       </>
+//     );
+//   }
+// }
 
 export default App;
